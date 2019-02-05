@@ -1,0 +1,22 @@
+# osx
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+
+._*
+.Spotlight-V100
+.Trashes
+
+# allow local bash overrides
+bash/local.sh
+
+# vim submodules
+vim/bundle/
+# vim swap
+vim/swap/
+# vim temp
+vim/tmp/
