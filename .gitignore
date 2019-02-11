@@ -14,8 +14,6 @@ Icon
 # allow local bash overrides
 bash/local.sh
 
-# vim submodules
-vim/bundle/
 # vim swap
 vim/swap/
 # vim temp
