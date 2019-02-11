@@ -1,21 +1,22 @@
+# If set to `on`, Readline performs filename matching and completion in a
+# case-insensitive fashion. The default value is ‘off’.
 set completion-ignore-case on
+# If set to `on`, completed directory names have a slash appended. The default
+# is `on`.
 set mark-directories off
+# This alters the default behavior of the completion functions. If set to
+# `on`, words which have more than one possible completion cause the matches
+# to be listed immediately instead of ringing the bell. The default value is
+# `off`.
 set show-all-if-ambiguous on
+# If set to `on`, words which have more than one possible completion without
+# any possible partial completion (the possible completions don't share a
+# common prefix) cause the matches to be listed immediately instead of ringing
+# the bell. The default value is `off`.
 set show-all-if-unmodified on
 
 # Incremental searching with Up and Down. Type 'ssh <up>' to get the last
 # 'ssh' command you used
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-
-# Ctrl + left/right arrows - navigation
-#"\e[1;5C": forward-word
-#"\e[1;5D": backward-word
-#"\e[5C": forward-word
-#"\e[5D": backward-word
-#"\e\e[C": forward-word
-#"\e\e[D": backward-word
-
-# Ctrl + Backspace - delete a word (like Alt + Backspace or Ctrl + W)
-#"\eh": backward-kill-word
 

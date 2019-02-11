@@ -2,6 +2,7 @@
 # aliases
 #
 
+alias l='ls -l'
 alias ll='ls -l'
 alias lal='ls -al'
 alias ..='cd ../'
