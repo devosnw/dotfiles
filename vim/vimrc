@@ -107,3 +107,4 @@ colorscheme Tomorrow
 map <leader>n :NERDTreeToggle<CR>
 " show NERD Tree if nothing open
 autocmd vimenter * if !argc() | NERDTree | endif
+
