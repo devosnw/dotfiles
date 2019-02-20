@@ -34,12 +34,12 @@ __git_prompt() {
   local branch="$(__git_branch_name)"
 
   if __git_is_clean; then
-    color="$COLOR_GREEN"
+    color="$COLOR_CHARTEUSE1"
   else
-    color="$COLOR_RED"
+    color="$COLOR_INDIAN_RED1"
   fi
 
-  echo -n " on $color$branch$COLOR_RESET"
+  echo -en " on $color$branch$COLOR_RESET"
 }
 
 # do `which` without any output

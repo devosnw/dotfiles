@@ -4,14 +4,24 @@
 
 # tell `ls` to use colors
 export CLICOLOR=1
-export COLOR_BLUE="$(tput setaf 4)"
-export COLOR_CYAN="$(tput setaf 6)"
-export COLOR_GREEN="$(tput setaf 2)"
-export COLOR_MAGENTA="$(tput setaf 5)"
-export COLOR_RED="$(tput setaf 1)"
-export COLOR_RESET="$(tput sgr0)"
-export COLOR_WHITE="$(tput setaf 7)"
-export COLOR_YELLOW="$(tput setaf 3)"
+export COLOR_BLUE="\033[38;5;12m"
+export COLOR_CHARTEUSE1="\033[38;5;118m"
+export COLOR_DEEP_SKY_BLUE1="\033[38;5;39m"
+export COLOR_DEEP_PINK1="\033[38;5;198m"
+export COLOR_CYAN="\033[38;5;6m"
+export COLOR_GREEN="\033[38;5;2m"
+export COLOR_INDIAN_RED1="\033[38;5;203m"
+export COLOR_LIME="\033[38;5;10m"
+export COLOR_MAGENTA="\033[38;5;13m"
+export COLOR_MAROON="\033[38;5;1m"
+export COLOR_MEDIUM_ORCHID1="\033[38;5;207m"
+export COLOR_NAVY="\033[38;5;4m"
+export COLOR_RED="\033[38;5;9m"
+export COLOR_RESET="\033[m"
+export COLOR_SILVER="\033[38;5;7m"
+export COLOR_WHITE="\033[38;5;15m"
+export COLOR_YELLOW="\033[38;5;11m"
+export COLOR_YELLOW1="\033[38;5;226m"
 # determines what terminal to use to display the passphrase
 export GPG_TTY="$(tty)"
 # colon-separated list of values controlling how commands are saved in history
