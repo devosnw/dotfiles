@@ -33,7 +33,7 @@ export GPG_TTY="$(tty)"
 # * `ignoreboth` - shorthand for `ignorespace` and `ignoredups`
 # * `erasedups` - causes all previous lines matching the current line to be
 #   removed from the history list before that line is saved
-export HISTCONTROL=ignoreboth
+export HISTCONTROL='erasedups:ignoreboth'
 # colon-separated list of patterns used to decide which command lines should
 # be saved on the history list.
 export HISTIGNORE='&:bg:cd:clear:exit:fg:ll:ls:pwd'
