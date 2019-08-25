@@ -20,7 +20,7 @@ __git_in_repo() {
 
 # is the repository clean
 __git_is_clean() {
-  git status 2>/dev/null | tail -n1 | grep 'nothing to commit, working tree clean' >/dev/null
+  git status 2>/dev/null | tail -n1 | grep --extended-regexp 'nothing to commit, working (tree|directory) clean' >/dev/null
 }
 
 # construct our git prompt with colors
