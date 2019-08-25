@@ -25,6 +25,7 @@ export COLOR_SILVER="\033[38;5;7m"
 export COLOR_WHITE="\033[38;5;15m"
 export COLOR_YELLOW="\033[38;5;11m"
 export COLOR_YELLOW1="\033[38;5;226m"
+__which_quietly vim && export EDITOR=vim
 # determines what terminal to use to display the passphrase
 export GPG_TTY="$(tty)"
 # colon-separated list of values controlling how commands are saved in history
