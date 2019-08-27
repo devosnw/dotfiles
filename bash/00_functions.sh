@@ -42,6 +42,15 @@ __git_prompt() {
   echo -en " on $color$branch$COLOR_RESET"
 }
 
+# visual prompt indicator that we are in an SSH session
+__ssh_prompt() {
+  if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+    echo -n '📡 '
+  else
+    echo -n ''
+  fi
+}
+
 # do `which` without any output
 __which_quietly() {
   local program="$1"
