@@ -11,6 +11,7 @@ cd
 git clone --recursive git@github.com:devosnw/dotfiles.git .dotfiles
 ln -s .dotfiles/bash/bashrc .bash_profile
 ln -s .dotfiles/bash/bashrc .bashrc
+ln -s .dotfiles/git/gitconfig .gitconfig
 ln -s .dotfiles/readline/inputrc .inputrc
 ln -s .dotfiles/vim .vim
 ln -s .dotfiles/vim/vimrc .vimrc

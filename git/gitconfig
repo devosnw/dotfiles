@@ -1,0 +1,20 @@
+#
+# global git config. all settings here should be common for all machines. if
+# you need specific local overrides put them in a `.gitconfig.local` file
+# adjacent to this one
+#
+
+[user]
+	email = nic@devos.me
+	name = Nic DeVos
+
+[alias]
+	st = status
+	ci = commit
+	di = diff
+	lg = log --all --decorate --graph --oneline --simplify-by-decoration
+	prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+# last so that all overrides happen properly
+[include]
+	path = .gitconfig.local
