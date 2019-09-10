@@ -14,7 +14,6 @@
 	di = diff
 	lg = log --all --decorate --graph --oneline --simplify-by-decoration
 	lgg = log --all --decorate --graph --oneline
-	prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 # last so that all overrides happen properly
 [include]
