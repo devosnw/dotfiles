@@ -46,7 +46,7 @@ export HISTSIZE=10000
 # [darwin] colors used by `ls` when displaying files
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # [linux] colors used by `ls` when displaying files
-export LS_COLORS="$LSCOLORS"
+export LS_COLORS='di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=34;43'
 # the contents of this variable are executed as a regular bash command just
 # before bash displays a prompt
 export PROMPT_COMMAND='history -a'
