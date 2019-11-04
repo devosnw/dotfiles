@@ -2,8 +2,8 @@
 # exports
 #
 
-# tell `ls` to use colors
-export CLICOLOR=1
+# universal exports
+
 export COLOR_BLUE="\033[38;5;12m"
 export COLOR_CHARTEUSE1="\033[38;5;118m"
 export COLOR_DEEP_SKY_BLUE1="\033[38;5;39m"
@@ -43,11 +43,19 @@ export HISTIGNORE='&:bg:cd:clear:exit:fg:ll:ls:pwd'
 export HISTTIMEFORMAT='%F %T '
 # maximum number of commands to remember on the history list
 export HISTSIZE=10000
-# [darwin] colors used by `ls` when displaying files
-export LSCOLORS=GxFxCxDxBxegedabagaced
-# [linux] colors used by `ls` when displaying files
-export LS_COLORS='di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=34;43'
 # the contents of this variable are executed as a regular bash command just
 # before bash displays a prompt
 export PROMPT_COMMAND='history -a'
+
+# platform specific exports
+
+if __is_os Darwin; then
+  # tell `ls` to use colors
+  export CLICOLOR=1
+  # colors used by `ls` when displaying files
+  export LSCOLORS=GxFxCxDxBxegedabagaced
+elif __is_os Linux; then
+  # colors used by `ls` when displaying files
+  export LS_COLORS='di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=34;43'
+fi
 
