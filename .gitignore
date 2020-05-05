@@ -12,7 +12,7 @@ Icon
 .Trashes
 
 # allow local bash overrides
-bash/local.sh
+bash/99_local.sh
 
 # vim swap
 vim/swap/
