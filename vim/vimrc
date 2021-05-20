@@ -110,3 +110,9 @@ map <leader>n :NERDTreeToggle<CR>
 " show NERD Tree if nothing open
 autocmd vimenter * if !argc() | NERDTree | endif
 
+"""""""""""""""""""""""""
+" custom syntax highlighting
+" note: must be accompanied by a syntax file in syntax/
+"""""""""""""""""""""""""
+autocmd BufRead,BufNewFile *.mak,*.mako set filetype=mako
+
