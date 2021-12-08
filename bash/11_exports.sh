@@ -50,6 +50,8 @@ export PROMPT_COMMAND='history -a'
 # platform specific exports
 
 if __is_os Darwin; then
+  # the default shell is now zsh. we want to use bash in peace.
+  export BASH_SILENCE_DEPRECATION_WARNING=1
   # tell `ls` to use colors
   export CLICOLOR=1
   # colors used by `ls` when displaying files
