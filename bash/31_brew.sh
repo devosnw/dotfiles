@@ -6,7 +6,7 @@ __which_quietly brew || return 0
 
 eval "$(brew shellenv)"
 
-if [[ -f "$HOMEBREW_PREFIX" ]]; then
+if [[ -f "$HOMEBREW_PREFIX/etc/bash_completion" ]]; then
   __bash_source_if_present "${HOMEBREW_PREFIX}/etc/bash_completion"
 else
   for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
