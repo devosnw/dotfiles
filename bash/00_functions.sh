@@ -5,7 +5,7 @@
 # source a shell file if it exists
 __bash_source_if_present() {
   local shell_file="$1"
-  [[ -f "$shell_file" ]] && source "$shell_file"
+  [[ -f "$shell_file" ]] && [[ -r "$shell_file" ]] && source "$shell_file"
 }
 
 # name of current git branch

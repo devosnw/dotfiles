@@ -13,8 +13,3 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
-if __which_quietly docker-compose; then
-  alias dcb='docker-compose build'
-  alias dcr='docker-compose run --rm'
-  alias dcu='docker-compose up'
-fi

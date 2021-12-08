@@ -2,12 +2,15 @@
 # brew specific configuration
 #
 
-__which_quietly brew || return 1
+__which_quietly brew || return 0
 
 eval "$(brew shellenv)"
 
+# completion setup for `bash`
+__bash_source_if_present "$(brew --prefix)/etc/bash_completion"
+
 for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-  [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+  __bash_source_if_present "$COMPLETION"
 done
 
 # add brew include dirs for better compilation
