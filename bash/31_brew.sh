@@ -2,7 +2,9 @@
 # brew specific configuration
 #
 
-__which_quietly brew || return 0
+__which_quietly brew || return 1
+
+eval "$(brew shellenv)"
 
 # add brew include dirs for better compilation
 export CFLAGS="-I$(brew --prefix)/include -L$(brew --prefix)/lib"
