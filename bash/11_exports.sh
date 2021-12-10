@@ -46,6 +46,8 @@ export HISTSIZE=10000
 # the contents of this variable are executed as a regular bash command just
 # before bash displays a prompt
 export PROMPT_COMMAND='history -a'
+# Python venv adds a basic prompt string but we can do better
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # platform specific exports
 

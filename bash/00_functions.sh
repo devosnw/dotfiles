@@ -48,6 +48,15 @@ __is_os() {
   [[ "$(uname -s)" == "$os_name" ]]
 }
 
+# visual prompt indicator that we are in a python virtual env
+__python_venv_prompt() {
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    echo -en "[🐍 ${COLOR_GREEN}$(basename "$VIRTUAL_ENV")${COLOR_RESET}]"
+  else
+    echo -n ''
+  fi
+}
+
 # visual prompt indicator that we are in an SSH session
 __ssh_prompt() {
   if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
