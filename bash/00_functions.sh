@@ -60,7 +60,7 @@ __python_venv_prompt() {
 # visual prompt indicator that we are in an SSH session
 __ssh_prompt() {
   if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
-    echo -n '📡 '
+    echo -n '[📡]'
   else
     echo -n ''
   fi
