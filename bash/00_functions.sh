@@ -39,7 +39,7 @@ __git_prompt() {
     color="$COLOR_INDIAN_RED1"
   fi
 
-  echo -en " on $color$branch$COLOR_RESET"
+  echo -en "[± $color$branch$COLOR_RESET]"
 }
 
 # check if the os name matches the given name
