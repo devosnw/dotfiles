@@ -56,18 +56,22 @@ __log() {
   if [[ -n "$color" ]]; then
     reset="$COLOR_RESET"
   fi
+  local fmt=+%Y-%m-%dT%H:%M:%S.%3N
+  if __is_os Darwin && [[ "$(which date)" = /bin/date ]]; then
+    fmt=${fmt%????} # OSX strftime doesn't have support nanosecond precision
+  fi
 
-  echo -e "[$(date +'%Y-%m-%dT%H:%M:%S')] ${color}${msg}${reset}"
+  echo -e "[$(date $fmt)] ${color}${msg}${reset}"
 }
 
 # log an error level message
 __log_error() {
-  __log "$1" "$COLOR_RED"
+  __log "$*" "$COLOR_RED"
 }
 
 # log an info level message
 __log_info() {
-  __log "$1" "$COLOR_WHITE"
+  __log "$*" "$COLOR_WHITE"
 }
 
 # visual prompt indicator that we are in a python virtual env
