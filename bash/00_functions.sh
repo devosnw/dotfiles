@@ -1,4 +1,4 @@
-#
+
 # functions
 #
 
@@ -46,6 +46,28 @@ __git_prompt() {
 __is_os() {
   local os_name="$1"
   [[ "$(uname -s)" == "$os_name" ]]
+}
+
+# log a timestamped message
+__log() {
+  local msg="$1"
+  local color="$2"
+  local reset=
+  if [[ -n "$color" ]]; then
+    reset="$COLOR_RESET"
+  fi
+
+  echo -e "[$(date +'%Y-%m-%dT%H:%M:%S')] ${color}${msg}${reset}"
+}
+
+# log an error level message
+__log_error() {
+  __log "$1" "$COLOR_RED"
+}
+
+# log an info level message
+__log_info() {
+  __log "$1" "$COLOR_WHITE"
 }
 
 # visual prompt indicator that we are in a python virtual env
