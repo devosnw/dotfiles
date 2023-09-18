@@ -56,9 +56,14 @@ __log() {
   if [[ -n "$color" ]]; then
     reset="$COLOR_RESET"
   fi
-  local fmt=+%Y-%m-%dT%H:%M:%S.%3N
-  if __is_os Darwin && [[ "$(which date)" = /bin/date ]]; then
-    fmt=${fmt%????} # OSX strftime doesn't have support nanosecond precision
+  local fmt=+%Y-%m-%dT%H:%M:%S
+  if __supports_strftime_nanoseconds; then
+    fmt="${fmt}.%3N"
+  fi
+  if [[ "$TZ" = UTC ]]; then
+    fmt="${fmt}Z"
+  else
+    fmt="$fmt%z"
   fi
 
   echo -e "[$(date $fmt)] ${color}${msg}${reset}"
@@ -72,6 +77,11 @@ __log_error() {
 # log an info level message
 __log_info() {
   __log "$*" "$COLOR_WHITE"
+}
+
+# log a warning level message
+__log_warning() {
+  __log "$*" "$COLOR_ORANGE"
 }
 
 # visual prompt indicator that we are in a python virtual env
@@ -90,6 +100,14 @@ __ssh_prompt() {
   else
     echo -n ''
   fi
+}
+
+# best guess way to detect this
+__supports_strftime_nanoseconds() {
+  if ! __is_os Darwin; then
+    return 0
+  fi
+  [[ "$(which date)" != /bin/date ]] # core OSX strftime does not support
 }
 
 # do `which` without any output
