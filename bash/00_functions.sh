@@ -8,6 +8,16 @@ __bash_source_if_present() {
   [[ -f "$shell_file" ]] && [[ -r "$shell_file" ]] && source "$shell_file"
 }
 
+# shallow wrapper around `date` which routes it to the best available version
+__date() {
+  local date_cmd=date
+  if __which_quietly gdate; then
+    date_cmd=gdate # GNU version provided by homebrew `coreutils`
+  fi
+
+  $date_cmd "$@"
+}
+
 # name of current git branch
 __git_branch_name() {
   git branch 2>/dev/null | grep '^*' | colrm 1 2
@@ -60,13 +70,13 @@ __log() {
   if __supports_strftime_nanoseconds; then
     fmt="${fmt}.%3N"
   fi
-  if [[ "$TZ" = UTC ]]; then
+  if [[ "$TZ" == UTC ]]; then
     fmt="${fmt}Z"
   else
     fmt="$fmt%z"
   fi
 
-  echo -e "[$(date $fmt)] ${color}${msg}${reset}"
+  echo -e "[$(__date $fmt)] ${color}${msg}${reset}"
 }
 
 # log an error level message
@@ -102,12 +112,13 @@ __ssh_prompt() {
   fi
 }
 
-# best guess way to detect this
+# best guess way to detect this by order of likeliness: non-Darwin platforms,
+# GNU `date` from Homebrew and any other `date` that's not in the default
+# location in OSX.
 __supports_strftime_nanoseconds() {
-  if ! __is_os Darwin; then
-    return 0
-  fi
-  [[ "$(which date)" != /bin/date ]] # core OSX strftime does not support
+  ! __is_os Darwin \
+    || __which_quietly gdate \
+    || [[ "$(which date)" != /bin/date ]]
 }
 
 # do `which` without any output
