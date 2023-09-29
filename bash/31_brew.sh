@@ -2,9 +2,10 @@
 # brew specific configuration
 #
 
-__which_quietly brew || return 0
+[[ -f /opt/homebrew/bin/brew ]] || return 0
 
-eval "$(brew shellenv)"
+# adds a variety of exports including PATH setup
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [[ -f "$HOMEBREW_PREFIX/etc/bash_completion" ]]; then
   __bash_source_if_present "${HOMEBREW_PREFIX}/etc/bash_completion"
