@@ -16,3 +16,14 @@ ln -s .dotfiles/readline/inputrc .inputrc
 ln -s .dotfiles/vim .vim
 ln -s .dotfiles/vim/vimrc .vimrc
 ```
+
+## Submodules
+
+Submodules are used in many places here. Whenever there is an update to them, you will need to run:
+
+```sh
+git submodule update --init --recursive
+```
+
+This will sync all of them.
+
